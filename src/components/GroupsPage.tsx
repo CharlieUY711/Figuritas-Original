@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import GroupCard from "./GroupCard";
-import { GROUPS } from "../groups";
+import { GROUPS } from "../data/groups";
 
 export default function GroupsPage() {
   const visibleGroups = GROUPS.slice(0, 12);
@@ -22,6 +22,7 @@ export default function GroupsPage() {
 
   return (
     <div style={styles.page}>
+        
       <div style={styles.grid}>
         {visibleGroups.map((g) => (
           <GroupCard key={g.letter} group={g} />
@@ -30,3 +31,6 @@ export default function GroupsPage() {
     </div>
   );
 }
+
+
+
