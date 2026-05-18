@@ -68,14 +68,14 @@ const styles = {
 
   stickers: {
     display: "grid",
-    gridTemplateColumns: "repeat(20, 1fr)",
+    gridTemplateColumns: "repeat(20, minmax(0, 1fr))", // ✔ auto‑responsive
     gap: "3px",
     flexGrow: 1,
   },
 
   sticker: {
-    width: "20px",
-    height: "20px",
+    width: "100%",   // ✔ ocupa toda la celda
+    height: "22px",  // ✔ se adapta mejor
     borderRadius: "4px",
     border: "1px solid #555",
     cursor: "pointer",

@@ -43,7 +43,7 @@ export default function GroupsTable({ group }) {
     cell: {
       height: 30,
       borderRadius: 6,
-      background: "#0A3D62",
+      background: "#ffffff",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",

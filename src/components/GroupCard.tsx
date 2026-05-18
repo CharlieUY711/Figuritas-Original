@@ -29,6 +29,8 @@ export default function GroupCard({ group }) {
 
 const styles = {
   card: {
+    width: "100%",            // ✔ Se ajusta al ancho de la celda del grid
+    boxSizing: "border-box",  // ✔ Evita overflow por padding
     background: "#109DFA",
     borderRadius: "6px",
     padding: "10px",

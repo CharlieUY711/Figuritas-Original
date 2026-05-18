@@ -6,19 +6,13 @@ export default function GroupsPage() {
   const visibleGroups = GROUPS.slice(0, 12);
 
   const styles = {
-    page: {
-      background: "#001F3F",
-      minHeight: "100vh",
-      padding: 20,
-      color: "white",
-    },
-    grid: {
-      display: "grid",
-      gridTemplateColumns: "repeat(3, 1fr)",
-      gridTemplateRows: "repeat(4, auto)",
-      gap: 12,
-    },
-  };
+   grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+    gap: 8,
+    width: "100%",
+   },
+ };
 
   return (
     <div style={styles.page}>

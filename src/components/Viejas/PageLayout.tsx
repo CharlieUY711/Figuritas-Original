@@ -1,5 +1,3 @@
-import FWCGrid from "./FWCGrid";
-
 export default function PageLayout({ children }) {
   return (
     <div style={{ 
@@ -10,8 +8,8 @@ export default function PageLayout({ children }) {
       color: "white",
       fontFamily: "sans-serif"
     }}>
-
-      {/* 🟦 HEAD */}
+      
+      {/* HEADER */}
       <header style={{
         padding: "12px 20px",
         fontSize: 22,
@@ -21,18 +19,32 @@ export default function PageLayout({ children }) {
         Charlie Figuritas
       </header>
 
-      {/* 🟩 FWC ZONE */}
-      
-      {/* Nuevo FWCGrid debajo de las 8 FWC */}
-      <FWCGrid />
+      {/* 8 FWC */}
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(8, 1fr)",
+        gap: 8,
+        padding: "12px 20px"
+      }}>
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div key={i} style={{
+            background: "#ff8800",
+            padding: "10px 0",
+            textAlign: "center",
+            borderRadius: 6,
+            fontWeight: "bold"
+          }}>
+            FWC {i + 1}
+          </div>
+        ))}
+      </div>
 
-
-      {/* 🟧 GROUPS ZONE */}
+      {/* BODY */}
       <main style={{ flex: 1, padding: "20px" }}>
         {children}
       </main>
 
-      {/* 🟫 FOOTER */}
+      {/* FOOTER */}
       <footer style={{
         padding: "10px 20px",
         fontSize: 14,
@@ -41,7 +53,6 @@ export default function PageLayout({ children }) {
       }}>
         Charlie Figuritas — Versión 1.00
       </footer>
-
     </div>
   );
 }
