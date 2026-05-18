@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 
-export default function TeamRow({ team, onChange }) {
+export default function TeamRow({ team }) {
   const [pressed, setPressed] = useState(Array(20).fill(false));
 
   const toggle = (i) => {
     const copy = [...pressed];
     copy[i] = !copy[i];
     setPressed(copy);
-
-    // ✔ NUEVO: reportar total presionado
-    if (onChange) {
-      const count = copy.filter(Boolean).length;
-      onChange(team.code, count);
-    }
   };
 
   return (
@@ -29,8 +23,8 @@ export default function TeamRow({ team, onChange }) {
             onClick={() => toggle(i)}
             style={{
               ...styles.sticker,
-              background: pressed[i] ? "#00aa00" : "#fff",
-              color: pressed[i] ? "#fff" : "#000",
+              background: pressed[i] ? "#00aa00" : "#fff", // ✔ verde
+              color: pressed[i] ? "#fff" : "#000",         // ✔ texto blanco
               boxShadow: pressed[i]
                 ? "inset 2px 2px 4px #333"
                 : "2px 2px 4px #0005",

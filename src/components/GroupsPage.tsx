@@ -1,30 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GroupCard from "./GroupCard";
 import { GROUPS } from "../data/groups";
 
-export default function GroupsPage() {
+export default function GroupsPage({ onChange }) {
   const visibleGroups = GROUPS.slice(0, 12);
 
+  // ✔ NUEVO: estado para sumar los grupos
+  const [groupCounts, setGroupCounts] = useState({});
+
+  const handleGroupChange = (letter, count) => {
+    const updated = { ...groupCounts, [letter]: count };
+    setGroupCounts(updated);
+
+    // ✔ reportar total al PageLayout
+    if (onChange) {
+      const total = Object.values(updated).reduce((a, b) => a + b, 0);
+      onChange(total);
+    }
+  };
+
   const styles = {
-   grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-    gap: 8,
-    width: "100%",
-   },
- };
+    grid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+      gap: 8,
+      width: "100%",
+    },
+  };
 
   return (
     <div style={styles.page}>
-        
       <div style={styles.grid}>
         {visibleGroups.map((g) => (
-          <GroupCard key={g.letter} group={g} />
+          <GroupCard key={g.letter} group={g} onChange={handleGroupChange} />
         ))}
       </div>
     </div>
   );
 }
-
-
-

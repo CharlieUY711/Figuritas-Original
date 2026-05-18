@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function FWCGrid({ onChange }) {
+export default function FWCGrid() {
   // Estado: 20 figuritas, todas inicialmente "no obtenidas"
   const [owned, setOwned] = useState(
     Array.from({ length: 20 }, () => false)
@@ -11,13 +11,6 @@ export default function FWCGrid({ onChange }) {
     setOwned((prev) => {
       const copy = [...prev];
       copy[index] = !copy[index];
-
-      // ✔ NUEVO: reportar total presionado
-      if (onChange) {
-        const count = copy.filter(Boolean).length;
-        onChange(count);
-      }
-
       return copy;
     });
   };
@@ -25,7 +18,7 @@ export default function FWCGrid({ onChange }) {
   return (
     <div
       style={{
-        display: "grid",
+       display: "grid",
         gridTemplateColumns: "repeat(10, 1fr)",
         gap: 8,
         padding: "12px 20px",
@@ -39,7 +32,7 @@ export default function FWCGrid({ onChange }) {
             key={i}
             onClick={() => toggle(i)}
             style={{
-              padding: "12px 20px",
+	      padding: "12px 20px",
               borderRadius: 4,
               border: "none",
               cursor: "pointer",
@@ -49,7 +42,7 @@ export default function FWCGrid({ onChange }) {
               transition: "0.15s",
             }}
           >
-            FWC {i + 1}
+           FWC {i + 1}
           </button>
         );
       })}
