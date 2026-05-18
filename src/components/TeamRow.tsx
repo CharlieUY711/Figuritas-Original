@@ -23,8 +23,8 @@ export default function TeamRow({ team }) {
             onClick={() => toggle(i)}
             style={{
               ...styles.sticker,
-              background: pressed[i] ? "#000" : "#fff",
-              color: pressed[i] ? "#fff" : "#000",
+              background: pressed[i] ? "#00aa00" : "#fff", // ✔ verde
+              color: pressed[i] ? "#fff" : "#000",         // ✔ texto blanco
               boxShadow: pressed[i]
                 ? "inset 2px 2px 4px #333"
                 : "2px 2px 4px #0005",
@@ -68,14 +68,14 @@ const styles = {
 
   stickers: {
     display: "grid",
-    gridTemplateColumns: "repeat(20, minmax(0, 1fr))", // ✔ auto‑responsive
+    gridTemplateColumns: "repeat(20, minmax(0, 1fr))",
     gap: "3px",
     flexGrow: 1,
   },
 
   sticker: {
-    width: "100%",   // ✔ ocupa toda la celda
-    height: "22px",  // ✔ se adapta mejor
+    width: "100%",
+    height: "22px",
     borderRadius: "4px",
     border: "1px solid #555",
     cursor: "pointer",
